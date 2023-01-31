@@ -1,6 +1,6 @@
 resource "azurerm_public_ip" "myip" {
     count = 2
-    name                = "${var.ip_name}-${format("%02d", count.index)}-IP"
+    name                = var.ip_name[count.index]
     location            = var.location
     resource_group_name = var.grp 
     allocation_method   = "Static"
@@ -26,7 +26,7 @@ resource "azurerm_subnet" "mysub" {
 
 resource "azurerm_network_interface" "mynic" {
     count               = 2
-    name                = "${var.nic_name}-${format("%02d", count.index)}-NIC"
+    name                = var.nic_name[count.index]
     location            = var.location
     resource_group_name = var.grp
 

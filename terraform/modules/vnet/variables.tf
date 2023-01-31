@@ -9,9 +9,9 @@ variable "grp" {
 }
 
 variable "ip_name" {
-    description = "ip address name suffix"
-    type        = string
-    default     = "terr-ip"
+    description = "ip addr names"
+    type        = list(string)
+    default     = ["ansible-IP", "nginx-IP"]
 }
 
 variable "vnet_name" {
@@ -39,13 +39,13 @@ variable "subnet_addr" {
 }
 
 variable "nic_name" {
-    description = "nic name suffix"
-    type        = string
-    default     = "terr-nic"
+    description = "nic names"
+    type        = list(string)
+    default     = ["ansible-NIC", "nginx-NIC"]
 }
 
 variable "sec_name" {
     description = "security group name"
-    type    = string
-    default = "terr-nic"
+    type        = string
+    default     = "terr-nic"
 }

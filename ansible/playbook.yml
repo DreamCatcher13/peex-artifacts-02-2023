@@ -10,3 +10,4 @@
     become: yes
     roles:
       - install_nginx
+      - config_nginx

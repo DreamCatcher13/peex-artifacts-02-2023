@@ -1,0 +1,31 @@
+---
+  - name: create a directory for static website
+    file:
+      path: "{{ site_dir }}"
+      state: directory
+      mode: '0755'
+
+  - name: copy site files to host
+    copy:
+      src: "{{ site_path }}"
+      dest: "{{ site_dir }}"
+      mode: preserve
+    vars:
+      site_path: /home/rand/static-website-example/
+
+  - name: copy nginx config
+    template:
+      src: templates/nginx.conf.j2
+      dest: /etc/nginx/sites-available/default
+
+  - name: enable new site
+    file:
+      src: /etc/nginx/sites-available/default
+      dest: /etc/nginx/sites-enabled/default
+      state: link
+
+  - name: restart nginx
+    service: 
+      name: nginx
+      state: restarted
+# tasks file for config_nginx

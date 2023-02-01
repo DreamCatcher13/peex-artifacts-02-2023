@@ -1,0 +1,13 @@
+---
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+
+
+# tasks file for install_nginx

@@ -1,0 +1,5 @@
+[web]
+nginxvm  ansible_host=10.0.2.5
+
+[web:vars]
+ansible_python_interpreter=/usr/bin/python3

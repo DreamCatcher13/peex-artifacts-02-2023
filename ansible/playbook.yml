@@ -1,0 +1,12 @@
+---
+  - name: update host & install additional software
+    hosts: web
+    become: yes
+    roles:
+      - update_host
+
+  - name: install and configure nginx
+    hosts: web
+    become: yes
+    roles:
+      - install_nginx

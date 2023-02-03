@@ -33,7 +33,7 @@ echo "Making backup..."
 for DIR in "$@"
 do
     FILE_NAME="$BACKUP/$(basename $DIR)_$DATE.tar.gz"
-    tar -zcf "$FILE_NAME" "$DIR"  
+    tar -zcf "$FILE_NAME" -C "$(dirname $DIR)" "$(basename $DIR)"  
 done
 echo "#########"
 echo "Backup is made."

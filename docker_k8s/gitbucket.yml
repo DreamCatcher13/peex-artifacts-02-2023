@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gitbucket
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitbucket
+  namespace: gitbucket
+  labels:
+    app: gitbucket
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gitbucket
+  template:
+    metadata:
+      labels:
+        app: gitbucket
+    spec:
+      containers:
+      - name: gitbucket
+        image: myregistry444.azurecr.io/gitbucket:v4
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitbucket-service
+  namespace: gitbucket
+spec:
+  type: LoadBalancer
+  selector:
+    app: gitbucket
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

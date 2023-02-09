@@ -15,7 +15,7 @@
 
 # in the example site above I added the following line in index.html:
 # <h2><!--# echo var="hostname" default="unknown_host" --></h2>
-# after <h1>Dimension</h2>, to display hostname of the machine (for LB)
+# after <h1>Dimension</h1>, to display hostname of the machine (for LB)
 
   - name: copy nginx config
     template:

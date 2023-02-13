@@ -9,7 +9,7 @@ fi
 
 mng="/home/blindguardian/learning_django/$1/manage.py"
 
-if [ ! -f $mng ]; then
+if [ ! -f "$mng" ]; then
   echo "[ERR] No such file"
   exit 1
 fi

@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "tf-state"
-    storage_account_name = "mystorageforterraform"
-    container_name       = "ansible-tf"
+    resource_group_name  = "GROUP"
+    storage_account_name = "mystorage"
+    container_name       = "ansibletf"
     key                  = "terraform.tfstate"
   }
 }
